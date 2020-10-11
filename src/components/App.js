@@ -10,6 +10,7 @@ function App() {
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
   const [isImagePopupOpen, setImagePopupOpen] = React.useState(false);
+ /* const [isDeleteCardPopupOpen, setDeleteCardPopupOpen] = React.useState(false);*/
   const [selectedCard, setSelectedCard] = React.useState({});
 
   function handleEditProfileClick() {
@@ -166,43 +167,14 @@ function App() {
           onClose={closeAllPopups}
           card={selectedCard}
         />
-
-
-        <div className="popup popup_delete-card">
-          <div className="popup__container">
-            <button
-              type="reset"
-              className="popup__close-button popup__close-button_delete-card"
-              value="Закрыть"
-            ></button>
-            <h2 className="popup__title">Вы уверены?</h2>
-            <form className="form" action="#" name="formDeleteCard" noValidate>
-              <button
-                type="submit"
-                className="form__save-button form__save-button_action popup__button_type_confirm"
-                value="Создать"
-              >
-                Да
-            </button>
-            </form>
-          </div>
-        </div>
+        <PopupWithForm
+          name={'delete-card'}
+          title={'Вы уверены?'}
+          text={'Да'}
+         /* isOpen={isDeleteCardPopupOpen}
+          onClose={closeAllPopups}*/
+        />
         
-        
-
-        <template className="cards card-template_type_default">
-          <div className="element">
-            <button type="button" className="element__delete"></button>
-            <img className="element__img" src="#" alt="" />
-            <div className="element__info">
-              <h2 className="element__title"></h2>
-              <div>
-                <button type="button" className="element__heart"></button>
-                <p className="element__sumLike">0</p>
-              </div>
-            </div>
-          </div>
-        </template>
       </div>
     </div>
   );
