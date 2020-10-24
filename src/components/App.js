@@ -90,7 +90,7 @@ function App() {
   function handleAddPlaceSubmit(card) {
     api.postCard(card)
       .then((card) => {
-        setCards([...cards, card]);
+        setCards([card, ...cards]);
         closeAllPopups();
       })
       .catch((err) => console.log(err));
