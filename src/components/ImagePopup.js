@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './Card';
 
 function ImagePopup({name, isOpen, onClose, card }) {
 
@@ -14,8 +13,8 @@ function ImagePopup({name, isOpen, onClose, card }) {
               value="Закрыть"
               onClick={onClose}
             ></button>
-            <img className="popup__img" src={card.src} alt={card.title} />
-            <h2 className="popup__title popup__title_open-image">{card.title}</h2>
+            <img className="popup__img" src={card.link} alt={card.name} />
+            <h2 className="popup__title popup__title_open-image">{card.name}</h2>
           </div>
         </div>
   );

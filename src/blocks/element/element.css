@@ -4,6 +4,7 @@
 @import url(./__heart/element__heart.css);
 @import url(./__delete/element__delete.css);
 @import url(./__sumLike/element__sumLike.css);
+@import url(./__delete/_hidden/element__delete_hidden.css);
 .element {
     width: 282px;
     background-color: #ffffff;

@@ -33,11 +33,11 @@ class Api {
     }).then(res => this._getResponseData(res));
   }
 
-  patchUserInfo({name, about}) {
+  patchUserInfo(res) {
     return fetch(`${this._url}users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({name, about}
+      body: JSON.stringify(res
       
       ),
     }).then(res => this._getResponseData(res));
@@ -61,28 +61,18 @@ class Api {
     }).then(res => this._getResponseData(res));
   }
 
-  deleteLike(id) {
-    return fetch(`${this._url}cards/likes/` + id, {
-      method: "DELETE",
-      headers: this._headers
-      
-    }).then(res => this._getResponseData(res));
-  }
-
-  putLike(url) {
-    return fetch(`${this._url}cards/likes/` + url, {
-      method: "PUT",
-      headers: this._headers
-    }).then(res => this._getResponseData(res));
-  }
-
-  patchUserAvatar({avatar}) {
+  patchUserAvatar(link) {
     return fetch(`${this._url}users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({
-        avatar,
-      })
+      body: JSON.stringify(link)
+    }).then(res => this._getResponseData(res));
+  }
+
+  changeLikeCardStatus(url, id){
+    return fetch(`${this._url}cards/likes/` + url, {
+      method: (id) ? 'PUT' : 'DELETE',
+      headers: this._headers
     }).then(res => this._getResponseData(res));
   }
 
